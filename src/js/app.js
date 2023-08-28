@@ -23,8 +23,14 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  if (variables.name == null)
-    console.log("These are the current variables: ", variables); //print on the console
+  // Here we assing a default value to variables with nullish values with the use of ES12's Nullish Assignment Operator
+  variables.name ??= "Name";
+  variables.lastname ??= "Lastname";
+  variables.role ??= "Role";
+  variables.city ??= "City";
+  variables.country ??= "Country";
+
+  console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
